@@ -8,6 +8,8 @@ import { LoginPage } from "../Pages/LoginPage/LoginPage";
 import { SettingPage } from "../Pages/SettingPage/SettingPage";
 import { DashBoard } from "../Pages/DashBoard/DashBoard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ErrorPage } from "../Pages/ErrorPage/ErrorPage";
+import { SignUp } from "../Pages/SignUp/SignUp";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -29,10 +31,12 @@ function App() {
       <Routes>
         <Route path="/" element={<DashBoard />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/setting" element={<SettingPage />} />
         <Route path="/profil">
           <Route path=":userid" element={<ProfilPage />} />
         </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
