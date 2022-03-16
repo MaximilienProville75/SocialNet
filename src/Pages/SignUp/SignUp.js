@@ -2,18 +2,26 @@ import React from "react";
 import { NavBar } from "../../Components/NavBar/NavBar";
 import { SignUpForm } from "../../Components/SignUpForm/SignUpForm";
 import SignupImg from "../../Assets/signUpImg.png";
+import { Footer } from "../../Components/Footer/Footer";
 
 export const SignUp = () => {
   return (
     <>
-      <div className="bg-slate-500 h-screen">
-        <NavBar />
-        <div>
-          <div className="flex flex-row justify-center ">
-            <img src={SignupImg} alt="signUp img" />
-            <SignUpForm />
+      <div className="bg-slate-500 m-h-full flex justify-between flex-col h-screen">
+        <div className="">
+          <NavBar />
+          <div className=" items-center justify-center m-h-screen lg:mt-72">
+            <div className="flex flex-row justify-center m-h-screen gap-10">
+              <img
+                src={SignupImg}
+                alt="signUp img"
+                className="max-h-96 mt-auto mb-auto"
+              />
+              <SignUpForm />
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );

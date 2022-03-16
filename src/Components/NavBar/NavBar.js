@@ -1,5 +1,5 @@
 import React from "react";
-import wave from "../../Assets/wave1.png";
+import wave from "../../Assets/wave4.png";
 
 export const NavBar = () => {
   return (
