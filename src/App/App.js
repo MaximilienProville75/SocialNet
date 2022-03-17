@@ -20,16 +20,10 @@ function App() {
     );
   }, []);
 
-  console.log(user);
-
-  user.map((use) => {
-    console.log(use.password);
-  });
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DashBoard />} />
+        <Route path="/" element={<DashBoard user={user} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/setting" element={<SettingPage />} />
