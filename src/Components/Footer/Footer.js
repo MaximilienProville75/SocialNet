@@ -4,8 +4,8 @@ import Wave from "../../Assets/wave3.png";
 export const Footer = () => {
   return (
     <>
-      <div className="fixed-footer ">
-        <img src={Wave} className="-mt-72 w-full -mb-14 m-h-[26.563rem]" />
+      <div className="fixed-footer bg-slate-500">
+        <img src={Wave} className="-mt-72 w-full -mb-14 m-h-[26.563rem] " />
         <footer className="bg-sky-500 h-250">
           <div className="flex flex-col text-center">
             <div className="text-2xl text-white font-pacifico">

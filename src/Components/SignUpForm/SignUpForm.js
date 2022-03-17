@@ -40,7 +40,7 @@ export const SignUpForm = () => {
   //   console.log(newUser);
 
   return (
-    <div className="font-quicksand">
+    <div className="font-quicksand mt-52 ">
       <form className="bg-slate-300 rounded-formRad flex flex-col gap-2 shadow-xl border-sky-300 border-8 p-5">
         <div className="text-sky-500 text-5xl text-center mt-10">Sign-Up</div>
         <div className="flex flex-col gap-5 mt-14 mb-14">

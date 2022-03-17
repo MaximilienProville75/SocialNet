@@ -23,7 +23,7 @@ function App() {
   console.log(user);
 
   user.map((use) => {
-    console.log(use.firstName);
+    console.log(use.password);
   });
 
   return (

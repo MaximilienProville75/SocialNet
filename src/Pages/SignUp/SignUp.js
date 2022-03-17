@@ -10,12 +10,12 @@ export const SignUp = () => {
       <div className="bg-slate-500 m-h-full flex justify-between flex-col h-screen">
         <div className="">
           <NavBar />
-          <div className=" items-center justify-center m-h-screen lg:mt-72">
+          <div className=" items-center justify-center m-h-screen bg-slate-500">
             <div className="flex flex-row justify-center m-h-screen gap-10">
               <img
                 src={SignupImg}
                 alt="signUp img"
-                className="max-h-96 mt-auto mb-auto"
+                className="max-h-96 mb-auto mt-80 "
               />
               <SignUpForm />
             </div>
