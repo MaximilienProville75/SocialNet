@@ -5,13 +5,14 @@ import { PostField } from "../../Components/PostField/PostField";
 
 export const DashBoard = (props) => {
   const user = props.user;
+  const posts = props.post;
   console.log(user);
 
   return (
-    <div className="bg-slate-500 h-screen">
+    <div className="bg-slate-500 h-full">
       <NavBar />
       <PostDashBoardForm />
-      <PostField />
+      <PostField posts={posts} />
     </div>
   );
 };

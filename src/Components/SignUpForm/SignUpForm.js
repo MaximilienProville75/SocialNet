@@ -1,17 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {
-  onSnapshot,
-  collection,
-  setDoc,
-  doc,
-  addDoc,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import db from "../../firebase";
 
 export const SignUpForm = () => {
-  //   const [newUser, setNewUser] = useState({});
-
   const [lastName, setLastName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,18 +18,16 @@ export const SignUpForm = () => {
       lastName,
       password,
     };
-    // setNewUser(val);
     clearState();
     await addDoc(collectionRef, val);
   };
+
   const clearState = () => {
     setFirstName("");
     setLastName("");
     setEmail("");
     setPassword("");
   };
-
-  //   console.log(newUser);
 
   return (
     <div className="font-quicksand mt-52 ">

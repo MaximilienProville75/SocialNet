@@ -13,17 +13,22 @@ import { SignUp } from "../Pages/SignUp/SignUp";
 
 function App() {
   const [user, setUser] = useState([]);
+  //* Ajouter state pour user Post & transfer props post={} to dashBoard
+  const [post, setPost] = useState([]);
 
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "user"), (snapshot) =>
       setUser(snapshot.docs.map((doc) => doc.data()))
+    );
+    const addPost = onSnapshot(collection(db, "userPost"), (snapshot) =>
+      setPost(snapshot.docs.map((doc) => doc.data()))
     );
   }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DashBoard user={user} />} />
+        <Route path="/" element={<DashBoard user={user} post={post} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/setting" element={<SettingPage />} />
