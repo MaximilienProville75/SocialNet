@@ -2,6 +2,7 @@ import React from "react";
 import { BiCamera } from "react-icons/bi";
 import { IoFilmOutline } from "react-icons/io5";
 import userImg from "../../Assets/userPng.png";
+import { PopUp } from "./PopUpSrc/PopUpSrc";
 
 import { useState, useEffect } from "react";
 import {
@@ -18,6 +19,9 @@ export const PostDashBoardForm = () => {
   const [imgSrc, setImgSrc] = useState("");
   const [videoSrc, setVideoSrc] = useState("");
 
+  const [buttonPopUp, setButtonPopUp] = useState(false);
+  const [buttonPopUp2, setButtonPopUp2] = useState(false);
+
   const transferValue = async (event) => {
     event.preventDefault();
     const collectionRef = collection(db, "userPost");
@@ -31,11 +35,23 @@ export const PostDashBoardForm = () => {
     await addDoc(collectionRef, val);
   };
 
+  const transferImgSrc = (event) => {
+    event.preventDefault();
+    setButtonPopUp(true);
+  };
+
+  const transerVideoSrc = (event) => {
+    event.preventDefault();
+    setButtonPopUp2(true);
+  };
+
   const clearState = () => {
     setDescription("");
     setImgSrc("");
     setVideoSrc("");
   };
+
+  console.log(imgSrc);
 
   return (
     <>
@@ -46,7 +62,7 @@ export const PostDashBoardForm = () => {
             <div className="flex flex-col text-lg w-auto">
               <input
                 type="text"
-                className="rounded-2xl border-sky-300 border-2 h-24 "
+                className="rounded-2xl border-sky-300 border-2 h-24 focus:caret-red-300"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
                 placeholder="Write Your Post..."
@@ -54,19 +70,18 @@ export const PostDashBoardForm = () => {
             </div>
             <div className="flex flex-row justify-between ml-1">
               <div className="flex flex-row mt-4 gap-6">
-                <button className="flex flex-row">
+                <button className="flex flex-row" onClick={transferImgSrc}>
                   <BiCamera className="text-sky-500 text-xl mt-1 mr-1" />
                   <div className="font-quicksand text-slate-500 text-lg">
                     Photo
                   </div>
-                  {/* Ajouter Popup pour pouvoir faire un ajout de lien photo  */}
                 </button>
-                <button className="flex flex-row">
+
+                <button className="flex flex-row" onClick={transerVideoSrc}>
                   <IoFilmOutline className="text-sky-500 text-xl mt-1 mr-1" />
                   <div className="font-quicksand text-slate-500 text-lg">
                     Video
                   </div>
-                  {/* Ajouter Popup pour pouvoir faire un ajout de lien video  */}
                 </button>
               </div>
               <button
@@ -77,6 +92,32 @@ export const PostDashBoardForm = () => {
               </button>
             </div>
           </form>
+          <PopUp
+            trigger={buttonPopUp}
+            setTrigger={setButtonPopUp}
+            className="fixed top-0 left-0 w-full h-screen flex justify-center items-center"
+          >
+            <input
+              type="text"
+              className="rounded-2xl border-sky-300 border-2 w-full h-18  p-2"
+              value={imgSrc}
+              onChange={(event) => setImgSrc(event.target.value)}
+              placeholder="Add your Img Link"
+            />
+          </PopUp>
+          <PopUp
+            trigger={buttonPopUp2}
+            setTrigger={setButtonPopUp2}
+            className="fixed top-0 left-0 w-full h-screen flex justify-center items-center"
+          >
+            <input
+              type="text"
+              className="rounded-2xl border-sky-300 border-2 w-full h-18  p-2"
+              value={videoSrc}
+              onChange={(event) => setVideoSrc(event.target.value)}
+              placeholder="Add your Video Link"
+            />
+          </PopUp>
         </div>
       </div>
     </>

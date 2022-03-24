@@ -8,7 +8,7 @@ export const PostField = (props) => {
 
   return (
     <>
-      <div className="bg-slate-300  max-w-xl lg:max-w-3xl flex flex-col m-auto shadow-xl border-sky-300 border-8 rounded-formRad p-3 mt-5 h-full gap-5">
+      <div className="bg-slate-300 w-auto max-w-xl lg:max-w-3xl flex flex-col m-auto shadow-xl border-sky-300 border-8 rounded-formRad p-3 mt-10 h-auto  relative gap-5">
         {posts.map((post) => {
           return <Post post={post} key={post} />;
         })}

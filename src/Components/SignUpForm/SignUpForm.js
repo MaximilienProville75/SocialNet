@@ -75,7 +75,7 @@ export const SignUpForm = () => {
         </div>
         <button
           onClick={transferValue}
-          className="font-pacifico text-white text-4xl m-auto bg-sky-300 w-52 ring-2 ring-white rounded-2xl h-14 mb-10 animate-pulse"
+          className="font-pacifico text-white text-4xl m-auto bg-sky-300 w-52 ring-2 ring-white rounded-2xl h-14 mb-10 animate-pulse cursor-progress"
         >
           Join Us
         </button>
